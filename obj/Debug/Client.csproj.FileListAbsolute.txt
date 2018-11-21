@@ -1,0 +1,36 @@
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\obj\Debug\Client.Form1.resources
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\obj\Debug\Client.Form2.resources
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\bin\Debug\Client.exe.config
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\bin\Debug\Client.exe
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\bin\Debug\Client.pdb
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\bin\Debug\EntityFramework.dll
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\bin\Debug\EntityFramework.xml
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\obj\Debug\Client.exe
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\obj\Debug\Client.pdb
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\obj\Debug\Client.Form3.resources
+C:\Users\Ed\documents\visual studio 2015\Projects\Client\Client\obj\Debug\Client.csproj.ResolveComReference.cache
+D:\Client\Client\bin\Debug\Client.exe.config
+D:\Client\Client\bin\Debug\Client.exe
+D:\Client\Client\bin\Debug\Client.pdb
+D:\Client\Client\bin\Debug\EntityFramework.dll
+D:\Client\Client\bin\Debug\EntityFramework.SqlServer.dll
+D:\Client\Client\bin\Debug\EntityFramework.xml
+D:\Client\Client\bin\Debug\EntityFramework.SqlServer.xml
+D:\Client\Client\bin\Debug\ru\EntityFramework.resources.dll
+D:\Client\Client\obj\Debug\Client.csprojAssemblyReference.cache
+D:\Client\Client\obj\Debug\Client.csproj.ResolveComReference.cache
+D:\Client\Client\obj\Debug\Client.Form1.resources
+D:\Client\Client\obj\Debug\Client.Form2.resources
+D:\Client\Client\obj\Debug\Client.Form3.resources
+D:\Client\Client\obj\Debug\Client.Properties.Resources.resources
+D:\Client\Client\obj\Debug\Client.csproj.GenerateResource.cache
+D:\Client\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+D:\Client\Client\obj\Debug\Client.csproj.CopyComplete
+D:\Client\Client\obj\Debug\Client.exe
+D:\Client\Client\obj\Debug\Client.pdb

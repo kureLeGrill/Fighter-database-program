@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Fighters_DatabaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Fighters">
+          <Key>
+            <PropertyRef Name="Fighter_Id" />
+          </Key>
+          <Property Name="Fighter_Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Weight_Id" Type="int" Nullable="false" />
+          <Property Name="Promoution_Id" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Height_in_cm" Type="int" Nullable="false" />
+          <Property Name="Reach_in_cm" Type="int" Nullable="false" />
+          <Property Name="Degree" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Promoutions">
+          <Key>
+            <PropertyRef Name="Promoutions_Id" />
+          </Key>
+          <Property Name="Promoutions_Id" Type="int" Nullable="false" />
+          <Property Name="Promoutions_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adresses" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Connections">
+          <Key>
+            <PropertyRef Name="Connection_ID" />
+          </Key>
+          <Property Name="Promoutions_ID" Type="int" Nullable="false" />
+          <Property Name="Weight_Class_ID" Type="int" Nullable="false" />
+          <Property Name="Connection_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Weight_Classes">
+          <Key>
+            <PropertyRef Name="Weight_Id" />
+          </Key>
+          <Property Name="Weight_Id" Type="int" Nullable="false" />
+          <Property Name="Weight_in_kg" Type="int" Nullable="false" />
+          <Property Name="Name_of_weight_class" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Fighters_Promoutions">
+          <End Role="Promoutions" Type="Self.Promoutions" Multiplicity="1" />
+          <End Role="Fighters" Type="Self.Fighters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promoutions">
+              <PropertyRef Name="Promoutions_Id" />
+            </Principal>
+            <Dependent Role="Fighters">
+              <PropertyRef Name="Promoution_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fighters_Weight_Classes">
+          <End Role="Weight_Classes" Type="Self.Weight_Classes" Multiplicity="1" />
+          <End Role="Fighters" Type="Self.Fighters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weight_Classes">
+              <PropertyRef Name="Weight_Id" />
+            </Principal>
+            <Dependent Role="Fighters">
+              <PropertyRef Name="Weight_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Connections_Promoutions">
+          <End Role="Promoutions" Type="Self.Promoutions" Multiplicity="1" />
+          <End Role="Table_Connections" Type="Self.Table_Connections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promoutions">
+              <PropertyRef Name="Promoutions_Id" />
+            </Principal>
+            <Dependent Role="Table_Connections">
+              <PropertyRef Name="Promoutions_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Connections_Weight_Classes">
+          <End Role="Weight_Classes" Type="Self.Weight_Classes" Multiplicity="1" />
+          <End Role="Table_Connections" Type="Self.Table_Connections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weight_Classes">
+              <PropertyRef Name="Weight_Id" />
+            </Principal>
+            <Dependent Role="Table_Connections">
+              <PropertyRef Name="Weight_Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Fighters_DatabaseModelContainer">
+          <EntitySet Name="Fighters" EntityType="Self.Fighters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promoutions" EntityType="Self.Promoutions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Connections" EntityType="Self.Table_Connections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weight_Classes" EntityType="Self.Weight_Classes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Fighters_Promoutions" Association="Self.FK_Fighters_Promoutions">
+            <End Role="Promoutions" EntitySet="Promoutions" />
+            <End Role="Fighters" EntitySet="Fighters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fighters_Weight_Classes" Association="Self.FK_Fighters_Weight_Classes">
+            <End Role="Weight_Classes" EntitySet="Weight_Classes" />
+            <End Role="Fighters" EntitySet="Fighters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Connections_Promoutions" Association="Self.FK_Table_Connections_Promoutions">
+            <End Role="Promoutions" EntitySet="Promoutions" />
+            <End Role="Table_Connections" EntitySet="Table_Connections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Connections_Weight_Classes" Association="Self.FK_Table_Connections_Weight_Classes">
+            <End Role="Weight_Classes" EntitySet="Weight_Classes" />
+            <End Role="Table_Connections" EntitySet="Table_Connections" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Fighters_DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Fighters">
+          <Key>
+            <PropertyRef Name="Fighter_Id" />
+          </Key>
+          <Property Name="Fighter_Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Weight_Id" Type="Int32" Nullable="false" />
+          <Property Name="Promoution_Id" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Height_in_cm" Type="Int32" Nullable="false" />
+          <Property Name="Reach_in_cm" Type="Int32" Nullable="false" />
+          <Property Name="Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Promoutions" Relationship="Self.FK_Fighters_Promoutions" FromRole="Fighters" ToRole="Promoutions" />
+          <NavigationProperty Name="Weight_Classes" Relationship="Self.FK_Fighters_Weight_Classes" FromRole="Fighters" ToRole="Weight_Classes" />
+        </EntityType>
+        <EntityType Name="Promoutions">
+          <Key>
+            <PropertyRef Name="Promoutions_Id" />
+          </Key>
+          <Property Name="Promoutions_Id" Type="Int32" Nullable="false" />
+          <Property Name="Promoutions_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adresses" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Fighters" Relationship="Self.FK_Fighters_Promoutions" FromRole="Promoutions" ToRole="Fighters" />
+          <NavigationProperty Name="Table_Connections" Relationship="Self.FK_Table_Connections_Promoutions" FromRole="Promoutions" ToRole="Table_Connections" />
+        </EntityType>
+        <EntityType Name="Table_Connections">
+          <Key>
+            <PropertyRef Name="Connection_ID" />
+          </Key>
+          <Property Name="Promoutions_ID" Type="Int32" Nullable="false" />
+          <Property Name="Weight_Class_ID" Type="Int32" Nullable="false" />
+          <Property Name="Connection_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Promoutions" Relationship="Self.FK_Table_Connections_Promoutions" FromRole="Table_Connections" ToRole="Promoutions" />
+          <NavigationProperty Name="Weight_Classes" Relationship="Self.FK_Table_Connections_Weight_Classes" FromRole="Table_Connections" ToRole="Weight_Classes" />
+        </EntityType>
+        <EntityType Name="Weight_Classes">
+          <Key>
+            <PropertyRef Name="Weight_Id" />
+          </Key>
+          <Property Name="Weight_Id" Type="Int32" Nullable="false" />
+          <Property Name="Weight_in_kg" Type="Int32" Nullable="false" />
+          <Property Name="Name_of_weight_class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Fighters" Relationship="Self.FK_Fighters_Weight_Classes" FromRole="Weight_Classes" ToRole="Fighters" />
+          <NavigationProperty Name="Table_Connections" Relationship="Self.FK_Table_Connections_Weight_Classes" FromRole="Weight_Classes" ToRole="Table_Connections" />
+        </EntityType>
+        <Association Name="FK_Fighters_Promoutions">
+          <End Role="Promoutions" Type="Self.Promoutions" Multiplicity="1" />
+          <End Role="Fighters" Type="Self.Fighters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promoutions">
+              <PropertyRef Name="Promoutions_Id" />
+            </Principal>
+            <Dependent Role="Fighters">
+              <PropertyRef Name="Promoution_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fighters_Weight_Classes">
+          <End Role="Weight_Classes" Type="Self.Weight_Classes" Multiplicity="1" />
+          <End Role="Fighters" Type="Self.Fighters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weight_Classes">
+              <PropertyRef Name="Weight_Id" />
+            </Principal>
+            <Dependent Role="Fighters">
+              <PropertyRef Name="Weight_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Connections_Promoutions">
+          <End Role="Promoutions" Type="Self.Promoutions" Multiplicity="1" />
+          <End Role="Table_Connections" Type="Self.Table_Connections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promoutions">
+              <PropertyRef Name="Promoutions_Id" />
+            </Principal>
+            <Dependent Role="Table_Connections">
+              <PropertyRef Name="Promoutions_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_Connections_Weight_Classes">
+          <End Role="Weight_Classes" Type="Self.Weight_Classes" Multiplicity="1" />
+          <End Role="Table_Connections" Type="Self.Table_Connections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weight_Classes">
+              <PropertyRef Name="Weight_Id" />
+            </Principal>
+            <Dependent Role="Table_Connections">
+              <PropertyRef Name="Weight_Class_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Fighters_DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Fighters" EntityType="Self.Fighters" />
+          <EntitySet Name="Promoutions" EntityType="Self.Promoutions" />
+          <EntitySet Name="Table_Connections" EntityType="Self.Table_Connections" />
+          <EntitySet Name="Weight_Classes" EntityType="Self.Weight_Classes" />
+          <AssociationSet Name="FK_Fighters_Promoutions" Association="Self.FK_Fighters_Promoutions">
+            <End Role="Promoutions" EntitySet="Promoutions" />
+            <End Role="Fighters" EntitySet="Fighters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fighters_Weight_Classes" Association="Self.FK_Fighters_Weight_Classes">
+            <End Role="Weight_Classes" EntitySet="Weight_Classes" />
+            <End Role="Fighters" EntitySet="Fighters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Connections_Promoutions" Association="Self.FK_Table_Connections_Promoutions">
+            <End Role="Promoutions" EntitySet="Promoutions" />
+            <End Role="Table_Connections" EntitySet="Table_Connections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_Connections_Weight_Classes" Association="Self.FK_Table_Connections_Weight_Classes">
+            <End Role="Weight_Classes" EntitySet="Weight_Classes" />
+            <End Role="Table_Connections" EntitySet="Table_Connections" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Fighters_DatabaseModelContainer" CdmEntityContainer="Fighters_DatabaseEntities">
+          <EntitySetMapping Name="Fighters">
+            <EntityTypeMapping TypeName="Fighters_DatabaseModel.Fighters">
+              <MappingFragment StoreEntitySet="Fighters">
+                <ScalarProperty Name="Fighter_Id" ColumnName="Fighter_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Weight_Id" ColumnName="Weight_Id" />
+                <ScalarProperty Name="Promoution_Id" ColumnName="Promoution_Id" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Height_in_cm" ColumnName="Height_in_cm" />
+                <ScalarProperty Name="Reach_in_cm" ColumnName="Reach_in_cm" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promoutions">
+            <EntityTypeMapping TypeName="Fighters_DatabaseModel.Promoutions">
+              <MappingFragment StoreEntitySet="Promoutions">
+                <ScalarProperty Name="Promoutions_Id" ColumnName="Promoutions_Id" />
+                <ScalarProperty Name="Promoutions_Name" ColumnName="Promoutions_Name" />
+                <ScalarProperty Name="Adresses" ColumnName="Adresses" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Connections">
+            <EntityTypeMapping TypeName="Fighters_DatabaseModel.Table_Connections">
+              <MappingFragment StoreEntitySet="Table_Connections">
+                <ScalarProperty Name="Promoutions_ID" ColumnName="Promoutions_ID" />
+                <ScalarProperty Name="Weight_Class_ID" ColumnName="Weight_Class_ID" />
+                <ScalarProperty Name="Connection_ID" ColumnName="Connection_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weight_Classes">
+            <EntityTypeMapping TypeName="Fighters_DatabaseModel.Weight_Classes">
+              <MappingFragment StoreEntitySet="Weight_Classes">
+                <ScalarProperty Name="Weight_Id" ColumnName="Weight_Id" />
+                <ScalarProperty Name="Weight_in_kg" ColumnName="Weight_in_kg" />
+                <ScalarProperty Name="Name_of_weight_class" ColumnName="Name_of_weight_class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

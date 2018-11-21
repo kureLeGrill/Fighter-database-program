@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a248e32595b443469d2d8aac595128ed" Name="Diagram1" ZoomLevel="99">
+        <EntityTypeShape EntityType="Fighters_DatabaseModel.Fighters" Width="1.5" PointX="9.875" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fighters_DatabaseModel.Promoutions" Width="1.5" PointX="0.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fighters_DatabaseModel.Table_Connections" Width="1.5" PointX="14.125" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Fighters_DatabaseModel.Weight_Classes" Width="1.5" PointX="0.5" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="Fighters_DatabaseModel.FK_Fighters_Promoutions" ManuallyRouted="false" />
+        <AssociationConnector Association="Fighters_DatabaseModel.FK_Fighters_Weight_Classes" ManuallyRouted="false" />
+        <AssociationConnector Association="Fighters_DatabaseModel.FK_Table_Connections_Promoutions" ManuallyRouted="false" />
+        <AssociationConnector Association="Fighters_DatabaseModel.FK_Table_Connections_Weight_Classes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
